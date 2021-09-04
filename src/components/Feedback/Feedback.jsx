@@ -10,18 +10,21 @@ class Feedback extends React.Component {
   };
 
   clickGood = () => {
-    console.log('Кликнули в Good');
-    console.log(this);
+    this.setState(prevState => ({
+      good: prevState.good + 1,
+    }));
   };
 
   clickNeutral = () => {
-    console.log('Кликнули в Neutral');
-    console.log(this);
+    this.setState(prevState => ({
+      neutral: prevState.neutral + 1,
+    }));
   };
 
   clickBad = () => {
-    console.log('Кликнули Bad');
-    console.log(this);
+    this.setState(prevState => ({
+      bad: prevState.bad + 1,
+    }));
   };
 
   render() {
@@ -47,6 +50,7 @@ class Feedback extends React.Component {
           <span className={s.data}>Good: {this.state.good}</span>
           <span className={s.data}>Neutral: {this.state.neutral}</span>
           <span className={s.data}>Bad: {this.state.bad}</span>
+          <span className={s.data}>Total: {this.countTotalFeedback} </span>
         </div>
       </div>
     );
